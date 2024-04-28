@@ -11,12 +11,6 @@
         <title>Document</title>
     </head>
     <body>
-        <?php
-        $statu = $_GET['state'];
-        if ($statu == 1) {
-            echo("<div id='notification'>Utilisateur introuvable</div>");
-        }
-        ?>
         <main class="center">
             <form action="./template/loginControler.php" method="post">
                 <fieldset>

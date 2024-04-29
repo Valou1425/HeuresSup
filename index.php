@@ -12,7 +12,7 @@
     </head>
     <body>
         <main class="center">
-            <form action="./template/loginControler.php" method="post">
+            <form action="./Controller/TestController.php" method="post">
                 <fieldset>
                     <p class="colonne">
                         <label for="identifiant" class="bold">identifiant</label> 

@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.colonne {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: #4CAF50;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+form {
+    width: 30%;
+}
+
+.colonne {
+    width: 100%;
+}
+
+#vert {
+    margin-top: 10px;
+}
+
+h2 {
+    font-size: 24px; /* Augmente la taille de la police pour 'Connexion' */
+    color: #000; /* Assure que le texte est noir */
+    margin: 10px 0; /* Ajoute de l'espace vertical autour du texte */
+}
+
+p {
+    font-size: 16px; /* Taille de la police pour 'Entrez vos informations ici' */
+    color: #000; /* Couleur grise pour le texte explicatif */
+}

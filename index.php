@@ -25,11 +25,11 @@
                         </div>
                         <input id="password" name="password" type="password">
                     </p>
-                    <input id="vert" type="submit" onclick="window.location.href='test.php';" value="connexion"> 
+                    <input id="vert" type="submit" value="connexion"> 
                 </fieldset>
             </form>
 
-            <p><a href="./index.php"><span>Créer un compte</span></a></p>
+            <p><a href="./Vue/RH/NouvelUtilisateur.php"><span>Créer un compte</span></a></p>
 
         </main>
     </body>

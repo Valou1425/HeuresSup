@@ -46,6 +46,10 @@ class UserModel extends DBModel {
         
     }
 
+    function ChangePassword(string $Newpassword) {
+        
+    }
+
     // other useful methods to interact with the database
     // could be to add a new user, to delete a user, to update a user, etc.
     // all these methods will be called by the controller

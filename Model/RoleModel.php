@@ -9,17 +9,17 @@ class RoleModel extends DBModel {
         if (!$this->connected) {
             return $result;
         }
-        $requete = "SELECT * FROM 'role'";
+        $requete = "SELECT * FROM role";
         $statement = $this->db->prepare($requete);
         $statement->execute();
         $entries = $statement->fetchAll();
 
         foreach ($entries as $entry) {
             $role = array(
-                "role" => $entry['role'],
+                "role" => $entry['nom'],
                 "id" => $entry['id']
             );
-            $result = $role;
+            $result[] = $role;
         }
         return $result;
     }

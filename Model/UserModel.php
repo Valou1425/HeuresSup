@@ -33,6 +33,19 @@ class UserModel extends DBModel {
         return $result;
     }
 
+
+
+    function new_user(string $firstname, string $lastname, string $login, string $password, string $team, string $role) {
+        if (!$this->connected) {
+            return $result;
+        }
+       
+        $requeteCreationUtilisateur = "INSERT INTO user (firstname, lastname, login, password, role_id, equipe_id) VALUES ('$firstname', '$lastname' ,'$login', '$password', '$roleId', '$equipeId')";
+        $statement = $this->db->prepare($requete);
+        $statement->execute();
+        
+    }
+
     // other useful methods to interact with the database
     // could be to add a new user, to delete a user, to update a user, etc.
     // all these methods will be called by the controller

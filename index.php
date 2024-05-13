@@ -28,7 +28,7 @@
                         </div>
                         <input id="password" name="password" type="password">
                     </p>
-                    <input id="vert" type="submit" onclick="window.location.href='test.php';" value="connexion"> 
+                    <input id="vert" type="submit" value="connexion"> 
                 </fieldset>
             </form>
 

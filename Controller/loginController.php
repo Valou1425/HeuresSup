@@ -11,8 +11,6 @@ $data = RequeteSQL($query);
 $inputLogin = $_POST['identifiant'];
 $inputPassword = $_POST['password'];
 
-foreach()
-
 header("location: ../index.php?state=1");
 exit;
 

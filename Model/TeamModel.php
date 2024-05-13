@@ -9,7 +9,7 @@ class TeamModel extends DBModel {
         if (!$this->connected) {
             return $result;
         }
-        $requete = "SELECT * FROM 'equipe'";
+        $requete = "SELECT * FROM equipe";
         $statement = $this->db->prepare($requete);
         $statement->execute();
         $entries = $statement->fetchAll();

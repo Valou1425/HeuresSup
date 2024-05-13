@@ -12,16 +12,16 @@ $inputPassword = $_POST['password'];
 $userModel = new UserModel();
 $result = $userModel->check_login($inputLogin, $inputPassword);
 
-if($result == null) {
-    header("location: ../index.php?state=1");
-    exit;
-} else {
-    header("location: ../Pointeuse.php");
-    exit;
-}
-
-
-header("location: ../index.php?state=1");
+header("location: ../Vue/RH/NouvelUtilisateur.php");
 exit;
+
+// if($result == null) {
+//     header("location: ../index.php");
+//     echo('<div id="notification">mot de passe incorrect<div>');
+//     exit;
+// } else {
+//     header("location: ../Vue/Pointeuse.php");
+//     exit;
+// }
 
 ?>

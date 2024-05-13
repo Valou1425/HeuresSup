@@ -47,7 +47,9 @@ class UserModel extends DBModel {
     }
 
     function ChangePassword(string $Newpassword) {
-        
+        $requete = "UPDATE user set password = '$newpassword'";
+        $statement = $this->db->prepare($requete);
+        $statement->execute();
     }
 
     // other useful methods to interact with the database

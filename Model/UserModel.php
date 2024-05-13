@@ -40,4 +40,8 @@ class UserModel extends DBModel {
     // (e.g., if the user is added, the controller will call the view to display the welcome page)
     // (e.g., if the user is not added, the controller will call the view to display the login form with an error message)
     
+
+
+// TEST
+
 }

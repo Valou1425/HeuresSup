@@ -15,8 +15,11 @@ class TeamModel extends DBModel {
         $entries = $statement->fetchAll();
 
         foreach ($entries as $entry) {
-            $result["equipe"] = $entry['equipe'];
-            $result["id"] = $entry['id'];
+            $team = array(
+                "nom" => $entry['nom'],
+                "id" => $entry['id']
+            );
+            $result[] = $team;
         }
         return $result;
     }
@@ -26,13 +29,17 @@ class TeamModel extends DBModel {
         if (!$this->connected) {
             return $result;
         }
-        $requeteEquipe = "SELECT id FROM equipe WHERE nom = $team";
+        $requete = "SELECT id FROM equipe WHERE nom = '$team'";
         $statement = $this->db->prepare($requete);
         $statement->execute();
-        $entry = $statement->fetchAll();
+        $entry = $statement->fetch();
 
-        $result = $entry;
-        return $result;
+        if ($entry) {
+            return $entry['id']; // Retourne l'ID du rôle s'il est trouvé
+        } else {
+            return null; // Retourne null si aucun résultat n'est trouvé
+        }
+        
     }
 
 }

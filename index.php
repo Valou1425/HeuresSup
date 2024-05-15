@@ -12,7 +12,7 @@
     </head>
     <body>
         <main class="center">
-            <form action="./Controller/TestController.php" method="post">
+            <form action="./Controller/loginController.php" method="post">
                 <fieldset>
                     <h2>Connexion</h2>
                     <p>Entrez vos informations ici</p>

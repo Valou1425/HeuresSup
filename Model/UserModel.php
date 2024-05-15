@@ -36,18 +36,37 @@ class UserModel extends DBModel {
 
 
     function new_user(string $firstname, string $lastname, string $login, string $password, string $team, string $role) {
+
         if (!$this->connected) {
             return $result;
         }
        
-        $requeteCreationUtilisateur = "INSERT INTO user (firstname, lastname, login, password, role_id, equipe_id) VALUES ('$firstname', '$lastname' ,'$login', '$password', '$roleId', '$equipeId')";
+        $requete = "INSERT INTO user (firstname, lastname, login, password, role_id, equipe_id) VALUES ('$firstname', '$lastname' ,'$login', '$password', '$role', '$team')";
         $statement = $this->db->prepare($requete);
         $statement->execute();
         
     }
 
-    function ChangePassword(string $Newpassword) {
-        $requete = "UPDATE user set password = '$newpassword'";
+    function getUserID(string $firstName, string $lastName) {
+        
+        if (!$this->connected) {
+            return $result;
+        }
+        $requete = "SELECT id FROM user WHERE firstname = '$firstName' AND lastname = '$lastName'";
+        $statement = $this->db->prepare($requete);
+        $statement->execute();
+        $entry = $statement->fetch();
+
+        if ($entry) {
+            return $entry['id']; // Retourne l'ID du rôle s'il est trouvé
+        } else {
+            return null; // Retourne null si aucun résultat n'est trouvé
+        }
+
+    }
+
+    function ChangePassword(string $newPassword) {
+        $requete = "UPDATE user set password = '$newPassword'";
         $statement = $this->db->prepare($requete);
         $statement->execute();
     }

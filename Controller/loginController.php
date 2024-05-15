@@ -12,6 +12,8 @@ $inputPassword = $_POST['password'];
 $userModel = new UserModel();
 $result = $userModel->check_login($inputLogin, $inputPassword);
 
+print_r($result);
+
 header("location: ../Vue/RH/NouvelUtilisateur.php");
 exit;
 
@@ -23,5 +25,3 @@ exit;
 //     header("location: ../Vue/Pointeuse.php");
 //     exit;
 // }
-
-?>

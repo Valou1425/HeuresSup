@@ -26,17 +26,21 @@ class RoleModel extends DBModel {
     
 
     function getRoleID(string $role) {
-        $result = [];
+
         if (!$this->connected) {
             return $result;
         }
         $requete = "SELECT id FROM role WHERE nom = '$role'";
         $statement = $this->db->prepare($requete);
         $statement->execute();
-        $entry = $statement->fetchAll();
+        $entry = $statement->fetch();
 
-        $result = $entry;
-        return $result;
+        if ($entry) {
+            return $entry['id']; // Retourne l'ID du rôle s'il est trouvé
+        } else {
+            return null; // Retourne null si aucun résultat n'est trouvé
+        }
+        
     }
     
 

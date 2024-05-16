@@ -1,28 +1,73 @@
 <?php
     
-    /*
     // do all necessary includes first
     // __DIR__ allows you to use relative paths explicitly
     // for this test controller (i.e. a controller that is not calling the view, just to test the model)
+
+    // require_once(__DIR__."/../Model/ConventionModel.php");
+    // $conventionModel = new ConventionModel();
+    // $result1 = $conventionModel->getHeureMax();
+    // $jour = $result1['jour'];
+    // $semaine = $result1['semaine'];
+    // $mois = $result1['mois'];
+    // print_r($jour);
+    // print_r($semaine);
+    // print_r($mois);
+    
+
+    // require_once(__DIR__."/../Model/HeureSupModel.php");
+    // $HeureSupModel = new HeureSupModel();
+    // $result2 = $HeureSupModel->getAllHeureSup();
+    // $result3 = $HeureSupModel->getMyHeureSup();
+
+
+    // require_once(__DIR__."/../Model/RoleModel.php");
+    // $roleModel = new RoleModel();
+    // $result4 = $roleModel->getRoleID('operateur');
+
+
+    // require_once(__DIR__."/../Model/TeamModel.php");
+    // $TeamModel = new TeamModel();
+    // $result5 = $TeamModel->getAllTeams();
+    // $result6 = $roleModel->getRoleID('operateur');
+
+
+    // require_once(__DIR__."/../Model/UserModel.php");
+    // $userModel = new UserModel();
+    // // $login = $_POST['identifiant'];
+    // // $password = $_POST['password'];
+    // $login = '';
+    // $password = '';
+    // $result7 = $userModel->check_login($login, $password);
+    // $result8 = $userModel->getUserID($userID);
+
+    // //print_r($result);
+
+    // echo('<ul>');
+    // $n = 8;
+    // for($i = 0; $i < $n; $i++ ) {
+    //     echo('<li>'.$result.$i.'<li>');
+    // }    
+    // echo('</ul>');
+
+    require_once(__DIR__."/../Model/HeureSupModel.php");
     require_once(__DIR__."/../Model/UserModel.php");
 
-    $userModel = new UserModel();
+    $heureSupModel = new HeureSupModel();
+    $users = new UserModel();
 
-    // p.ex. Homer, Simpson, donut, 123
+    $AllHeureSup = $heureSupModel->getAllHeureSup();
+    $AllUsersID = $users->getAllUsersID();
 
-    // test function check_login(string $login, string $password);
-    // test for existing login password
-    $login = $_POST['identifiant'];
-    $password = $_POST['password'];
-    
-    //$result = $userModel->check_login($login, $password);
-
-    require_once(__DIR__."/../Model/ConventionModel.php");
-    $conventionModel = new ConventionModel();
-    //$result = $conventionModel->getHeureMax();
-    */
-    require_once(__DIR__."/../Model/RoleModel.php");
-    $roleModel = new RoleModel();
-    $result = $roleModel->getRoleID('operateur');
-
-    print_r($result);
+    $heureTotal = 0;
+    foreach($AllUsersID as $u) {
+        $userIDActuel = $u['id'];
+        foreach($AllHeureSup as $h) {
+            $heure = $h['nombre'];
+            $userIDTeste = $h['id'];
+            if ($userIDTeste == $userIDActuel) {
+                $heureTotal += $heure;
+            }
+        }
+        echo('<p>'.$heureTotal.'</p>');
+    }

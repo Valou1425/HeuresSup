@@ -14,8 +14,8 @@ $inputLogin = $_POST['identifiant'];
 $inputPassword = $_POST['password'];
 
 $inputTeam = $_POST['team'];
-$teamId = $teamModel->getTeam($inputTeam);
-$inputPassword = $_POST['role'];
-$roleId = $roleModel->getRole($inputRole);
+$teamId = $teamModel->getTeamID($inputTeam);
+$inputRole = $_POST['role'];
+$roleId = $roleModel->getRoleID($inputRole);
 
 $userModel->new_user($inputFirstName, $inputlastName, $inputLogin, $inputPassword, $roleId, $teamId);

@@ -11,9 +11,14 @@
         <title>Document</title>
     </head>
     <body>
-        
+        <?php
+
+        if (isset($_GET['connect'])) {
+            echo('<p id="notification">identifiant ou mot de passe incorect</p>');
+        }
+        ?>
         <main class="center">
-            <form action="./Controller/TestController.php" method="post">
+            <form action="./Controller/loginController.php" method="post">
                 <fieldset>
                     <h2>Connexion</h2>
                     <p>Entrez vos informations ici</p>
@@ -24,7 +29,7 @@
                     <p class="colonne">
                         <div class="ligne">
                             <label for="password" class="bold">mot de passe</label> 
-                            <a href="./en-cours.html" ><span id="SpanForm1">mot de passe oublié?</span></a>
+                            <a href="./Vue/LoginTools/ChangerMotDePasse.php" ><span id="SpanForm1">mot de passe oublié?</span></a>
                         </div>
                         <input id="password" name="password" type="password">
                     </p>

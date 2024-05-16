@@ -1,5 +1,7 @@
 <?php
 
+require_once("DBModel.php");
+
 Class ConventionModel extends DBModel {
 
     function getHeureMax() {

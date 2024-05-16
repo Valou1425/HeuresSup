@@ -1,5 +1,7 @@
 <?php
 
+require_once("DBModel.php");
+
 class HeureSupModel extends DBModel {
 
     function getAllHeureSup() {

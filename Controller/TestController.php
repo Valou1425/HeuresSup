@@ -60,7 +60,7 @@
     $AllUsersID = $users->getAllUsersID();
 
     $heureTotal = 0;
-    foreach($ALLUsersID as $u) {
+    foreach($AllUsersID as $u) {
         $userIDActuel = $u['id'];
         foreach($AllHeureSup as $h) {
             $heure = $h['nombre'];

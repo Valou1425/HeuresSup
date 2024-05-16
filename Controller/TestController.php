@@ -26,16 +26,26 @@
     // $result4 = $roleModel->getRoleID('operateur');
 
 
-    // require_once(__DIR__."/../Model/TeamModel.php");
-    // $TeamModel = new TeamModel();
-    // $result5 = $TeamModel->getAllTeams();
+    require_once(__DIR__."/../Model/TeamModel.php");
+    $TeamModel = new TeamModel();
+    $result5 = $TeamModel->getAllTeams();
     // $result6 = $roleModel->getRoleID('operateur');
+    print_r($result5);
+    foreach ($result5 as $team) {
+        echo('<p>'.$team['nom'].'</p>');
+    }
 
 
     // require_once(__DIR__."/../Model/UserModel.php");
     // $userModel = new UserModel();
-    // // $login = $_POST['identifiant'];
-    // // $password = $_POST['password'];
+    // $login = $_POST['identifiant'];
+    // $password = $_POST['password'];
+    // $connexion = $userModel->check_login($login, $password);
+    // $id = $connexion['id'];
+    // $name = $userModel->getFirstNameANDLastName($id);
+    // print_r($name);
+
+
     // $login = '';
     // $password = '';
     // $result7 = $userModel->check_login($login, $password);
@@ -50,24 +60,29 @@
     // }    
     // echo('</ul>');
 
-    require_once(__DIR__."/../Model/HeureSupModel.php");
-    require_once(__DIR__."/../Model/UserModel.php");
 
-    $heureSupModel = new HeureSupModel();
-    $users = new UserModel();
+    
 
-    $AllHeureSup = $heureSupModel->getAllHeureSup();
-    $AllUsersID = $users->getAllUsersID();
 
-    $heureTotal = 0;
-    foreach($AllUsersID as $u) {
-        $userIDActuel = $u['id'];
-        foreach($AllHeureSup as $h) {
-            $heure = $h['nombre'];
-            $userIDTeste = $h['id'];
-            if ($userIDTeste == $userIDActuel) {
-                $heureTotal += $heure;
-            }
-        }
-        echo('<p>'.$heureTotal.'</p>');
-    }
+
+    // require_once(__DIR__."/../Model/HeureSupModel.php");
+    // require_once(__DIR__."/../Model/UserModel.php");
+
+    // $heureSupModel = new HeureSupModel();
+    // $users = new UserModel();
+
+    // $AllHeureSup = $heureSupModel->getAllHeureSup();
+    // $AllUsersID = $users->getAllUsersID();
+
+    // $heureTotal = 0;
+    // foreach($AllUsersID as $u) {
+    //     $userIDActuel = $u['id'];
+    //     foreach($AllHeureSup as $h) {
+    //         $heure = $h['nombre'];
+    //         $userIDTeste = $h['id'];
+    //         if ($userIDTeste == $userIDActuel) {
+    //             $heureTotal += $heure;
+    //         }
+    //     }
+    //     echo('<p>'.$heureTotal.'</p>');
+    // }

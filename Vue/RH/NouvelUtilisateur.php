@@ -3,14 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="stylesheet" href="style.css"> 
-        <link rel="stylesheet" href="styles/desktop.css" media="screen and (min-width: 768px)"> 
-        <link rel="stylesheet" href="styles/mobile.css" media="screen and (max-width: 767px)"> 
-        <link rel="shortcut icon" href="media/pictures/favicon.png">
+        <link rel="stylesheet" href="../Styles/login.css"> 
+        <link rel="stylesheet" href="../Styles/notification.css"> 
         <title>Document</title>
     </head>
     <body>
+        <?php
+        if (isset($_GET['result'])) {
+            $result = $_GET['result'];
+            if ($result==0) {
+                echo('<p id="notification">Veuillez remplir tous les champs</p>');
+            }elseif ($result==1) {
+                echo('<p id="notification">Veuillez mettre au moins trois caractères par champ</p>');
+            } else {
+                echo('<p id="notification">Le nouveau compte a bien été créé</p>');
+            }
+        }
+        ?>
         <main class="center">
             <form action="./../../Controller/NewAccountController.php" method="post">
                 <fieldset>

@@ -32,6 +32,69 @@ class UserModel extends DBModel {
     }
 
 
+    function getTeamID(int $id) {
+        $result = [];
+        if (!$this->connected) {
+            return $result;
+        }
+        $requete = "SELECT equipe_id FROM user WHERE id = '$id'";
+        $statement = $this->db->prepare($requete);
+        $statement->execute();
+        $entry = $statement->fetch();
+
+        if ($entry) {
+            return $entry['equipe_id'];
+        } else {
+            return null;
+        }
+        
+    }
+
+    function getRoleID(int $id) {
+        $result = [];
+        if (!$this->connected) {
+            return $result;
+        }
+        $requete = "SELECT role_id FROM user WHERE id = '$id'";
+        $statement = $this->db->prepare($requete);
+        $statement->execute();
+        $entry = $statement->fetch();
+
+        if ($entry) {
+            return $entry['role_id']; // Retourne l'ID du rôle s'il est trouvé
+        } else {
+            return null; // Retourne null si aucun résultat n'est trouvé
+        }
+        
+    }
+
+    function getFirstNameANDLastName(int $id) {
+
+        $result = [];
+        if (!$this->connected) {
+            return $result;
+        }
+        $requete = "SELECT firstname, lastname FROM user WHERE id = '$id'";
+        $statement = $this->db->prepare($requete);
+        $statement->execute();
+        $entries = $statement->fetchAll();
+
+        foreach ($entries as $entry) {
+            $name = array(
+                "firstname" => $entry['firstname'],
+                "lastname" => $entry['lastname']
+            );
+            $result[] = $name;
+        }
+        return $result;
+
+        if ($entry) {
+            return $entry['firstname']; // Retourne l'ID du rôle s'il est trouvé
+        } else {
+            return null; // Retourne null si aucun résultat n'est trouvé
+        }
+
+    }
 
     function new_user(string $firstname, string $lastname, string $login, string $password, string $team, string $role) {
 

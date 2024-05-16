@@ -40,6 +40,24 @@ class RoleModel extends DBModel {
         } else {
             return null; // Retourne null si aucun résultat n'est trouvé
         }
+
+    }
+
+    function getRole(string $id) {
+
+        if (!$this->connected) {
+            return $result;
+        }
+        $requete = "SELECT nom FROM role WHERE id = '$id'";
+        $statement = $this->db->prepare($requete);
+        $statement->execute();
+        $entry = $statement->fetch();
+
+        if ($entry) {
+            return $entry['nom']; // Retourne l'ID du rôle s'il est trouvé
+        } else {
+            return null; // Retourne null si aucun résultat n'est trouvé
+        }
         
     }
     

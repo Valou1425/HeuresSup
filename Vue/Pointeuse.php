@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Système de Pointage</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Styles/Pointeuse.css">
 </head>
 <body>
     <div class="header">
@@ -14,5 +14,19 @@
         <button id="debauche" onclick="registerTime('debauche')">Débauche</button>
     </div>
     <script src="scripts.js"></script>
+
+    <?php
+
+    $role = $_GET['role'];
+    $team = $_GET['team'];
+
+    if ($role == "responsable") {
+        //require_once(__DIR__."/../controller/ajoutHeureController.php");
+        echo('<a href="Patron/ListeTravailleur.php?team='.$team.'">Consulter les heures sup de mes employés</a>');
+    } elseif ($role == "RH") {
+        echo('<a href="RH/NouvelUtilisateur.php">Ajouter un nouvel utilisateur</a>');
+    }
+    ?>
+
 </body>
 </html>

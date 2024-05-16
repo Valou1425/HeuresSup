@@ -4,12 +4,12 @@
     // __DIR__ allows you to use relative paths explicitly
     // for this test controller (i.e. a controller that is not calling the view, just to test the model)
 
-    require_once(__DIR__."/../Model/ConventionModel.php");
-    $conventionModel = new ConventionModel();
-    $result1 = $conventionModel->getHeureMax();
-    $jour = $result1['jour'];
-    $semaine = $result1['semaine'];
-    $mois = $result1['mois'];
+    // require_once(__DIR__."/../Model/ConventionModel.php");
+    // $conventionModel = new ConventionModel();
+    // $result1 = $conventionModel->getHeureMax();
+    // $jour = $result1['jour'];
+    // $semaine = $result1['semaine'];
+    // $mois = $result1['mois'];
     // print_r($jour);
     // print_r($semaine);
     // print_r($mois);
@@ -49,3 +49,25 @@
     //     echo('<li>'.$result.$i.'<li>');
     // }    
     // echo('</ul>');
+
+    require_once(__DIR__."/../Model/HeureSupModel.php");
+    require_once(__DIR__."/../Model/UserModel.php");
+
+    $heureSupModel = new HeureSupModel();
+    $users = new UserModel();
+
+    $AllHeureSup = $heureSupModel->getAllHeureSup();
+    $AllUsersID = $users->getAllUsersID();
+
+    $heureTotal = 0;
+    foreach($ALLUsersID as $u) {
+        $userIDActuel = $u['id'];
+        foreach($AllHeureSup as $h) {
+            $heure = $h['nombre'];
+            $userIDTeste = $h['id'];
+            if ($userIDTeste == $userIDActuel) {
+                $heureTotal += $heure;
+            }
+        }
+        echo('<p>'.$heureTotal.'</p>');
+    }

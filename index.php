@@ -11,8 +11,14 @@
         <title>Document</title>
     </head>
     <body>
+        <?php
+
+        if (isset($_GET['connect'])) {
+            echo('<p id="notification">identifiant ou mot de passe incorect</p>');
+        }
+        ?>
         <main class="center">
-            <form action="./Controller/loginController.php" method="post">
+            <form action="./Controller/TestController.php" method="post">
                 <fieldset>
                     <h2>Connexion</h2>
                     <p>Entrez vos informations ici</p>

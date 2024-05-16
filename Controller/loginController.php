@@ -10,18 +10,17 @@ $inputLogin = $_POST['identifiant'];
 $inputPassword = $_POST['password'];
 
 $userModel = new UserModel();
-$result = $userModel->check_login($inputLogin, $inputPassword);
+// $connexion = $userModel->check_login($inputLogin, $inputPassword);
 
-print_r($result);
-
-header("location: ../Vue/RH/NouvelUtilisateur.php");
-exit;
-
-// if($result == null) {
-//     header("location: ../index.php");
+// if($connexion == null) {
+//     header("location: ../index.php?connect=0");
 //     echo('<div id="notification">mot de passe incorrect<div>');
 //     exit;
 // } else {
 //     header("location: ../Vue/Pointeuse.php");
 //     exit;
 // }
+
+//header("location: ../Vue/RH/NouvelUtilisateur.php");
+//exit;
+

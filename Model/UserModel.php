@@ -18,13 +18,11 @@ class UserModel extends DBModel {
         }
         // The request uses the MD5() functions since password should not be stored
         // without any protection in the database (i.e., use MD5() to store and retrieve passwords)
-        $request = "SELECT * FROM user WHERE login=:login AND password=MD5(:password)";
+        $request = "SELECT * FROM user WHERE login='$login' AND password='$password'";
         $statement = $this->db->prepare($request);
-        $statement->execute([
-            "login" => $login,
-            "password" => $password
-        ]);
+        $statement->execute();
         $entries = $statement->fetchAll();
+        $result = $entries;
         if (count($entries) == 1) {
             $result["firstname"] = $entries[0]['firstname'];
             $result["lastname"] = $entries[0]['lastname'];
@@ -62,6 +60,27 @@ class UserModel extends DBModel {
         } else {
             return null; // Retourne null si aucun résultat n'est trouvé
         }
+
+    }
+
+    function getAllUsersID() {
+
+        $result = [];
+        if (!$this->connected) {
+            return $result;
+        }
+        $requete = "SELECT DISTINCT id FROM user";
+        $statement = $this->db->prepare($requete);
+        $statement->execute();
+        $entries = $statement->fetchAll();
+
+        foreach ($entries as $entry) {
+            $id = array(
+                "id" => $entry['id']
+            );
+            $result[] = $id;
+        }
+        return $result;
 
     }
 

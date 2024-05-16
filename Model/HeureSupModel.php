@@ -17,9 +17,9 @@ class HeureSupModel extends DBModel {
             $heureSup = array(
                 "id" => $entry['id'],
                 "ajout_perso" => $entry['ajout_perso'],
-                "nombre" = $entry['heure_sup'],
-                "date" = $entry['date'],
-                "user_id" = $entry['user_id']
+                "nombre" => $entry['heure_sup'],
+                "date" => $entry['date'],
+                "user_id" => $entry['user_id']
             );
             $result[] = $heureSup;
         }
@@ -42,9 +42,9 @@ class HeureSupModel extends DBModel {
             $heureSup = array(
                 "id" => $entry['id'],
                 "ajout_perso" => $entry['ajout_perso'],
-                "nombre" = $entry['heure_sup'],
-                "date" = $entry['date'],
-                "user_id" = $entry['user_id']
+                "nombre" => $entry['heure_sup'],
+                "date" => $entry['date'],
+                "user_id" => $entry['user_id']
             );
             $result[] = $heureSup;
         }
@@ -52,9 +52,14 @@ class HeureSupModel extends DBModel {
 
     }
 
-    function ajouterHeureSup(int $nombre) {
+    function ajouterHeureSup(bool $ajoutPerso, int $nombre, string $date, int $userID) {
 
-        
+        if (!$this->connected) {
+            return $result;
+        }
+        $requete = "INSERT INTO heure_sup (ajout_perso, heure_sup, date, user_id) VALUES ($ajoutPerso, $nombre, CURDATE(), $userID)";
+        $stmt = $this->$db->prepare($requete);
+        $stmt->execute();
 
     }
 

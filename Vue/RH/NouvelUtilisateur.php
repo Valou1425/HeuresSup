@@ -36,7 +36,7 @@
                             <?php
                             require_once(__DIR__."/../../Controller/TeamController.php");
                             foreach ($teams as $team) {
-                                echo('<option value="'.$team.'">'.$team.'</option>');
+                                echo('<option value="'.$team['nom'].'">'.$team['nom'].'</option>');
                             }
                             ?>
                         </select>
@@ -47,16 +47,14 @@
                             <?php
                             require_once(__DIR__."/../../Controller/RoleController.php");
                             foreach ($roles as $role) {
-                                echo('<option value="'.$role.'">'.$role.'</option>');
+                                echo('<option value="'.$role['role'].'">'.$role['role'].'</option>');
                             }
                             ?>
                         </select>
                     </p>
-                    <input id="vert" type="submit" value="connexion">
+                    <input id="vert" type="submit" value="Créer le compte">
                 </fieldset>
             </form>
-
-            <p><a href="./index.php"><span>Créer un compte</span></a></p>
 
         </main>
     </body>

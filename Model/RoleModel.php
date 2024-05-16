@@ -9,34 +9,38 @@ class RoleModel extends DBModel {
         if (!$this->connected) {
             return $result;
         }
-        $requete = "SELECT * FROM 'role'";
+        $requete = "SELECT * FROM role";
         $statement = $this->db->prepare($requete);
         $statement->execute();
         $entries = $statement->fetchAll();
 
         foreach ($entries as $entry) {
             $role = array(
-                "role" => $entry['role'],
+                "role" => $entry['nom'],
                 "id" => $entry['id']
             );
-            $result = $role;
+            $result[] = $role;
         }
         return $result;
     }
     
 
     function getRoleID(string $role) {
-        $result = [];
+
         if (!$this->connected) {
             return $result;
         }
         $requete = "SELECT id FROM role WHERE nom = '$role'";
         $statement = $this->db->prepare($requete);
         $statement->execute();
-        $entry = $statement->fetchAll();
+        $entry = $statement->fetch();
 
-        $result = $entry;
-        return $result;
+        if ($entry) {
+            return $entry['id']; // Retourne l'ID du rôle s'il est trouvé
+        } else {
+            return null; // Retourne null si aucun résultat n'est trouvé
+        }
+        
     }
     
 

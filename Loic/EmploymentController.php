@@ -1,10 +1,10 @@
 <?php
 
-class BadgeModel extends DBModel {
+class EmploymentController {
 
-    public function embaucher(int $userID) {
-
-        $user_id = $userID; // Exemple d'ID utilisateur
+    public function embaucher() {
+        global $conn;
+        $user_id = 1; // Exemple d'ID utilisateur
         $today = date('Y-m-d');
         $now = date('Y-m-d H:i:s');
 
@@ -17,12 +17,11 @@ class BadgeModel extends DBModel {
             $conn->query("INSERT INTO badge (user_id, date, heure, type) VALUES ($user_id, '$today', '$now', b'1')");
             return ["Embauche enregistrée avec succès à $now", "positive"];
         }
-
     }
 
-    public function debaucher(int $userID) {
-
-        $user_id = $userID; // Exemple d'ID utilisateur
+    public function debaucher() {
+        global $conn;
+        $user_id = 1; // Exemple d'ID utilisateur
         $today = date('Y-m-d');
         $now = date('Y-m-d H:i:s');
 
@@ -49,5 +48,5 @@ class BadgeModel extends DBModel {
             return ["Débauche enregistrée avec succès à $now, minutes supplémentaires: $minutes_sup minute(s)", "positive"];
         }
     }
-
 }
+?>

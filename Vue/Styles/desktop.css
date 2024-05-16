@@ -95,3 +95,14 @@ p {
     font-size: 16px; /* Taille de la police pour 'Entrez vos informations ici' */
     color: #000; /* Couleur grise pour le texte explicatif */
 }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none; /* Caché par défaut */
+}
+
+.error-icon {
+    color: red;
+    margin-right: 5px;
+}

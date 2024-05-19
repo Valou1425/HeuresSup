@@ -19,7 +19,7 @@
     <div class="container">
         <div class="button-container">
             <h2>Cliquer sur l'un des boutons</h2>
-            <form action="" method="post">
+            <form method="post">
                 <button id="embauche" type="submit" name="embauche" class="button button-embauche">Embauche</button>
                 <button id="debauche" type="submit" name="debauche" class="button button-debauche">Débauche</button>
             </form>

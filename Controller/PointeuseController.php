@@ -38,7 +38,8 @@ if ($role == "responsable") {
     echo('<a href="RH/NouvelUtilisateur.php?role='.$role.'&team='.$team.'&firstname='.$firstname.'&lastname='.$lastname.'">Ajouter un nouvel utilisateur</a>');
 }
 
-echo("<h3 class='center'>Mes Heures Supp </h2><div class='heureSup'");
+echo("<h3 class='center'>Mes Heures Supp </h2>
+        <div class='heureSup'>");
 
 // affiche l'historique des heures sup de l'utilisateur
 foreach($myHeureSup as $h) {

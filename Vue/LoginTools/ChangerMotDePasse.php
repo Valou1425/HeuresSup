@@ -14,7 +14,7 @@
             <p>Veuillez entrer votre identifiant.</p>
             <div class="colonne">
                 <label for="identifiant">identifiant :</label>
-                <input type="identifiant" id="identifiant" name="identifiant" required>
+                <input type="text" id="identifiant" name="identifiant" required>
             </div>
             <p>Veuillez entrer votre nouveau mot de passe.</p>
             <div class="colonne">

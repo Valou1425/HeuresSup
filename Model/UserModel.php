@@ -147,8 +147,8 @@ class UserModel extends DBModel {
 
     }
 
-    function ChangePassword(string $newPassword) {
-        $requete = "UPDATE user set password = '$newPassword'";
+    function ChangePassword(string $newPassword, string $login) {
+        $requete = "UPDATE user set password = '$newPassword' WHERE login='$login'";
         $statement = $this->db->prepare($requete);
         $statement->execute();
     }

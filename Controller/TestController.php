@@ -15,6 +15,22 @@
     // print_r($mois);
     
 
+    // require_once(__DIR__."/../Model/BadgeModel.php");
+    // $BadgeModel = new BadgeModel();
+    // $date = "2024-05-18";
+    // $id = 1;
+    // //$result = $BadgeModel->Embaucher($id);
+    // $result = $BadgeModel->checkEmbauche($id);
+
+    $today = date('Y-m-d');
+    $todayArray = explode("-", $today);
+    $anneeActuel = $todayArray[0];
+    $moisActuel = $todayArray[1];
+    $jourActuel = $todayArray[2];
+    $jourSemaineActuel = date("N", strtotime($today));
+
+    print_r($jourSemaineActuel);
+
     // require_once(__DIR__."/../Model/HeureSupModel.php");
     // $HeureSupModel = new HeureSupModel();
     // $result2 = $HeureSupModel->getAllHeureSup();
@@ -26,14 +42,14 @@
     // $result4 = $roleModel->getRoleID('operateur');
 
 
-    require_once(__DIR__."/../Model/TeamModel.php");
-    $TeamModel = new TeamModel();
-    $result5 = $TeamModel->getAllTeams();
+    // require_once(__DIR__."/../Model/TeamModel.php");
+    // $TeamModel = new TeamModel();
+    // $result5 = $TeamModel->getAllTeams();
     // $result6 = $roleModel->getRoleID('operateur');
-    print_r($result5);
-    foreach ($result5 as $team) {
-        echo('<p>'.$team['nom'].'</p>');
-    }
+    // print_r($result5);
+    // foreach ($result5 as $team) {
+    //     echo('<p>'.$team['nom'].'</p>');
+    // }
 
 
     // require_once(__DIR__."/../Model/UserModel.php");

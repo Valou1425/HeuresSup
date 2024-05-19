@@ -8,6 +8,7 @@ body {
 
 /* Styles pour l'en-tête */
 .header {
+    position: absolute;
     background-color: #333;
     color: #fff;
     text-align: center;
@@ -55,5 +56,95 @@ a:hover {
 }
 
 #debauche {
-    background-color:rgb(260,60,60);
+    background-color: rgb(260,60,60);
+}
+
+#deconnexion {
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: red;
+    color:black;
+    height: 40px;
+    width: 150px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.alert-positive {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(36,176,31);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    animation: fadeOut 5s forwards;
+}
+
+.alert-negative {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(230,60,60);
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    animation: fadeOut 5s forwards;
+}
+  
+@keyframes fadeOut {
+0% {
+    opacity: 1;
+}
+90% {
+    opacity: 1;
+}
+100% {
+    opacity: 0;
+}
+}
+
+h3 {
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: solid black 3px;
+    background-color: orange;
+    text-align: center;
+}
+
+.heureSup {
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.heure {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 30px;
+}
+
+table {
+    width: 90vw;
+}
+
+tr {
+    border-collapse: collapse;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+    width:30%;
+    border: solid black 3px;
+}
+
+tr.titre {
+    background-color: grey;
 }

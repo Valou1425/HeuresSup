@@ -6,6 +6,23 @@ body {
     padding: 0;
 }
 
+header {
+    width : 98vw;
+    background-color: white;
+    border-bottom: solid black 1px;
+    color: black;
+    text-align: center;
+    height : 10vh;
+    padding: 20px 0;
+}
+
+#homeIcon {
+    width:5%;
+    height:auto;
+    display: block;
+    margin-left: 2%;
+}
+
 .center {
     display: flex;
     justify-content: center;
@@ -86,12 +103,48 @@ form {
 }
 
 h2 {
-    font-size: 24px; /* Augmente la taille de la police pour 'Connexion' */
-    color: #000; /* Assure que le texte est noir */
-    margin: 10px 0; /* Ajoute de l'espace vertical autour du texte */
+    font-size: 24px; 
+    color: #000; 
+    margin: 10px 0; 
 }
 
 p {
-    font-size: 16px; /* Taille de la police pour 'Entrez vos informations ici' */
-    color: #000; /* Couleur grise pour le texte explicatif */
+    font-size: 16px; 
+    color: #000; 
+}
+
+
+/* --------------------------------------- Style des instructions --------------------------------------- */
+
+#instructions {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+#instructions h3 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+}
+
+#instructionContent h4 {
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+#instructionContent p {
+    margin: 5px 0;
+    color: #666;
+}
+
+#instructionContent span {
+    font-weight: bold;
+    color: #000;
 }

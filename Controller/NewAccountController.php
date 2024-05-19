@@ -4,6 +4,11 @@ require_once(__DIR__."/../Model/UserModel.php");
 require_once(__DIR__."/../Model/TeamModel.php");
 require_once(__DIR__."/../Model/RoleModel.php");
 
+$team = $_GET['team'];
+$role = $_GET['role'];
+$firstname = $_GET['firstname'];
+$lastname = $_GET['lastname'];
+
 $userModel = new UserModel();
 $teamModel = new TeamModel();
 $roleModel = new RoleModel();
@@ -22,43 +27,29 @@ $notNull = false;
 $notEmpty = false;
 
 if ($inputFirstName == null ) {
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=0");
-    exit;
+    $result=0;
 } elseif ($inputlastName == null) {
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=0");
-    exit;
+    $result=0;
 } elseif ($inputLogin == null) {
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=0");
-    exit;
+    $result=0;
 }elseif ($inputPassword == null) {
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=0");
-    exit;
+    $result=0;
 }elseif ($inputTeam == null) {
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=0");
-    exit;
+    $result=0;
 }elseif ($inputRole == null) {
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=0");
-    exit;
+    $result=0;
 } else {
     $notNull = true;
 }
 
 if (strlen($inputFirstName)<3) {
-    echo('<p>'.strlen($inputFirstName).'</p>');
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=1");
-    exit;
+    $result=1;
 } elseif (strlen($inputlastName)<3) {
-    echo('<p>'.strlen($inputlastName).'</p>');
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=1");
-    exit;
+    $result=1;
 } elseif (strlen($inputLogin)<3) {
-    echo('<p>'.strlen($inputLogin).'</p>');
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=1");
-    exit;
+    $result=1;
 }elseif (strlen($inputPassword)<3) {
-    echo('<p>'.strlen($inputPassword).'</p>');
-    header("location: ../Vue/RH/NouvelUtilisateur.php?result=1");
-    exit;
+    $result=1;
 } else {
     $notEmpty = true;
 }
@@ -66,9 +57,10 @@ if (strlen($inputFirstName)<3) {
 
 if($notNull) {
     if($notEmpty) {
-        //$userModel->new_user($inputFirstName, $inputlastName, $inputLogin, $inputPassword, $roleId, $teamId);
-        header("location: ../Vue/RH/NouvelUtilisateur.php?result=2");
-        exit;
+        $result = 2;
     }
 }
+
+header("location: ../Vue/RH/NouvelUtilisateur.php?result=".$result."&firstname=".$firstname."&lastname=".$lastname."&role=".$role."&team=".$team);
+exit;
 

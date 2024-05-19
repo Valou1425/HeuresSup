@@ -9,6 +9,11 @@
     </head>
     <body>
         <?php
+        $team = $_GET['team'];
+        $role = $_GET['role'];
+        $firstname = $_GET['firstname'];
+        $lastname = $_GET['lastname'];
+
         if (isset($_GET['result'])) {
             $result = $_GET['result'];
             if ($result==0) {
@@ -20,8 +25,13 @@
             }
         }
         ?>
+        <header>
+            <a href="/../src/Vue/Pointeuse.php?role=<?= $role ?>&team=<?=$team?>&firstname=<?=$firstname?>&lastname=<?=$lastname?>">
+                <img id="homeIcon" alt="homeIcon" src="/../src/Vue/media/home.png">
+            </a>
+        </header>
         <main class="center">
-            <form action="./../../Controller/NewAccountController.php" method="post">
+            <form action="./../../Controller/NewAccountController.php?role=<?= $role ?>&team=<?=$team?>&firstname=<?=$firstname?>&lastname=<?=$lastname?>" method="post">
                 <fieldset>
                     <p class="colonne">
                         <label for="firstname" class="bold">Nom</label> 

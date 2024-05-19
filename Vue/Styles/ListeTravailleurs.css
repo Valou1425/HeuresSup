@@ -1,5 +1,5 @@
 /* style.css */
-body {
+main {
     font-family: Arial, sans-serif;
     background-color: white;
     margin: 0;
@@ -8,6 +8,23 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+header {
+    position:absolute;
+    width : 98vw;
+    background-color: white;
+    border-bottom: solid black 1px;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#homeIcon {
+    width:5%;
+    height:auto;
+    display: block;
+    margin-left: 2%;
 }
 
 .container {
@@ -126,3 +143,37 @@ form {
     text-decoration: none;
     cursor: pointer;
 }
+
+#notification {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: green;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    animation: fadeOut 5s forwards;
+    color: white;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .visible {
+    visibility: visible;
+  }
+  
+  .invisible {
+    visibility: hidden;
+  }
